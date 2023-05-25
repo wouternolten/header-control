@@ -1,0 +1,25 @@
+{
+  "name": "header-control",
+  "version": "1.0.0",
+  "description": "This extension allows you to control headers sent per hostname.",
+  "main": "src/background.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wouternolten/header-control.git"
+  },
+  "keywords": [
+    "header",
+    "control"
+  ],
+  "author": "Wouter Nolten",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wouternolten/header-control/issues"
+  },
+  "homepage": "https://github.com/wouternolten/header-control#readme",
+  "devDependencies": {
+    "eslint": "^8.41.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
+  }
+}

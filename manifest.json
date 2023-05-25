@@ -8,6 +8,14 @@
         "default_title": "Header Control"
     },
     "permissions": [
-        "activeTab"
-    ]
+        "activeTab",
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls>"
+    ],
+    "background": {
+        "scripts": [
+            "src/background.js"
+        ]
+    }
 }

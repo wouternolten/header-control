@@ -1,25 +1,23 @@
-function getElement(elName) {
-  return document.getElementById(elName);
-}
-
 function addSliderControls() {
-  const slider = getElement('slider');
+  const slider = document.getElementById('slider');
 
   slider.addEventListener('change', (element) => {
     if (element.target.value < 1) {
-      getElement('slider-label').innerHTML = 'Disabled';
+      document.getElementById('slider-label').innerHTML = 'Disabled';
       return;
     }
 
-    getElement('slider-label').innerHTML = 'Enabled';
+    document.getElementById('slider-label').innerHTML = 'Enabled';
   });
 }
 
 function addHeaderControls() {
-  const button = getElement('addHeader');
+  const button = document.getElementById('addHeader');
 
   button.addEventListener('click', () => {
     const headersDiv = document.getElementById('headers');
+
+    const headerDiv = document.createElement('div');
 
     const headerNameField = document.createElement('input');
     headerNameField.type = 'text';
@@ -29,8 +27,19 @@ function addHeaderControls() {
     headerValueField.type = 'text';
     headerValueField.placeholder = 'Header Value';
 
-    headersDiv.appendChild(headerNameField);
-    headersDiv.appendChild(headerValueField);
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('bg-red');
+    deleteButton.textContent = 'X';
+
+    deleteButton.addEventListener('click', () => {
+      headersDiv.removeChild(headerDiv);
+    });
+
+    headerDiv.appendChild(headerNameField);
+    headerDiv.appendChild(headerValueField);
+    headerDiv.appendChild(deleteButton);
+
+    headersDiv.appendChild(headerDiv);
   });
 }
 

@@ -28,6 +28,14 @@
         .bg-red {
             background-color: red;
         }
+
+        .bg-blue {
+            background-color: blue;
+        }
+
+        .bg-green {
+            background-color: green;
+        }
     </style>
     <script src="../src/popup.js"></script>
 </head>
@@ -35,12 +43,16 @@
 <body>
     <div class="header-values">
         <div class="header-list" id="headers"></div>
-        <button id="addHeader">+</button>
+        <button class="bg-green" id="addHeader">+</button>
     </div>
 
     <div class="header-slider">
         <label for="slider" id="slider-label">Enabled</label>
         <input type="range" id="slider" min="0" max="1" step="1">
+    </div>
+
+    <div class="headers-save">
+        <button class="bg-blue" id="saveHeaders">Save Headers</button>
     </div>
 </body>
 

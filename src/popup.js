@@ -1,6 +1,3 @@
-function addSliderControls() {
-  const slider = document.getElementById('slider');
-
 async function getCurrentTabHostName() {
   return new Promise((res, rej) => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {

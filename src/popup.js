@@ -44,38 +44,53 @@ async function getCurrentActiveHeadersForHost(hostName) {
   });
 }
 
+function createElementWithClassNames(elementType, classNames) {
+  const element = document.createElement(elementType);
+
+  classNames.forEach((className) => {
+    element.classList.add(className);
+  });
+
+  return element;
+}
+
 function addHeaderField(headerName, headerValue) {
   const headersDiv = document.getElementById('headers');
 
-  const headerDiv = document.createElement('div');
+  const headerDiv = createElementWithClassNames('div', ['row', 'my-1']);
 
-  const headerNameField = document.createElement('input');
+  const headerNameColumn = createElementWithClassNames('div', ['col-5']);
+  const headerNameField = createElementWithClassNames('input', ['form-control']);
   headerNameField.type = 'text';
   headerNameField.placeholder = 'Header Name';
+  headerNameColumn.appendChild(headerNameField);
 
   if (headerName) {
     headerNameField.value = headerName;
   }
 
-  const headerValueField = document.createElement('input');
+  const headerValueColumn = createElementWithClassNames('div', ['col-5']);
+  const headerValueField = createElementWithClassNames('input', ['form-control']);
   headerValueField.type = 'text';
   headerValueField.placeholder = 'Header Value';
+  headerValueColumn.appendChild(headerValueField);
 
   if (headerValue) {
     headerValueField.value = headerValue;
   }
 
-  const deleteButton = document.createElement('button');
-  deleteButton.classList.add('bg-red');
+  const deleteButtonColumn = createElementWithClassNames('div', ['col-1']);
+  const deleteButton = createElementWithClassNames('button', ['btn', 'btn-danger']);
   deleteButton.textContent = 'X';
+  deleteButtonColumn.appendChild(deleteButton);
 
   deleteButton.addEventListener('click', () => {
     headersDiv.removeChild(headerDiv);
   });
 
-  headerDiv.appendChild(headerNameField);
-  headerDiv.appendChild(headerValueField);
-  headerDiv.appendChild(deleteButton);
+  headerDiv.appendChild(headerNameColumn);
+  headerDiv.appendChild(headerValueColumn);
+  headerDiv.appendChild(deleteButtonColumn);
 
   headersDiv.appendChild(headerDiv);
 }
